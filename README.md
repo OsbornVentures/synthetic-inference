@@ -125,6 +125,64 @@ receipt = sha256(JCS({"field": field,
 return {"ok": ok, "receipt": receipt}
 ```
 
+## Updates.
+
+https://bitsnbytesinc.medium.com/the-bubble-and-the-bandit-4598c2d1041d (A Laymen's writeup on Gaussian Bubble Vectors in LD and Bandit Algo)
+
+---
+
+I’ve been working on what I call AI‑Structured Web — JSON‑LD backends specifically designed for autonomous agents.
+
+Here’s a living example of Synthetic Inference in the wild: machine‑readable fields that any agent can recompute and verify locally.
+
+Observations show mirrored API/HTML, asset coherence, sitemap priority, and cadence. Gaussian “bubble” vectors (μ, Σ, w) model operational state just like contextual bandits.
+
+These aren’t descriptive claims, they are computable fields. Agents hash receipts with RFC 8785 JCS, proving coherence without trusting the publisher.
+
+This is the future: metadata that does math
+
+---
+
+Here's a non working sample. (Valid LD)
+```
+{
+
+ "url": "https://example.com",
+
+ "observations": [
+
+  {"kind": "mirror_check", "pair": ["ai.json","ai.html"], "equal": true, "t": "2025-08-07T21:14Z"},
+
+  {"kind": "jobs.json", "datePosted": "2025-06-08", "validThrough": "2025-06-08", "interpreted": "closed"},
+
+  {"kind": "sitemap_order", "priority": [["/manifest.json",1.0],["/ai.json",1.0],["/verify.json",1.0]], "coherent": true},
+
+  {"kind": "asset_coherence", "logo.webp_sha256": "…", "referenced_in": ["ai.json","ai.html"], "coherent": true},
+
+  {"kind": "cadence", "pages_changed_last_90d": 2, "pattern": "monthly"}
+
+ ],
+
+ "bubbles": [
+
+  {"μ":[0.61, -0.05, 0.22], "Σ":[[0.05,0,0],[0,0.08,0],[0,0,0.04]], "w":0.9, "explain":"ai.json/html mirror"},
+
+  {"μ":[0.10, 0.30, -0.20], "Σ":[[0.12,0,0],[0,0.12,0],[0,0,0.12]], "w":0.5, "explain":"jobs closed"}
+
+ ],
+
+ "score": {"operational": 0.63, "phase": "Active?", "phase_alt":"Paused", "entropy": 0.41},
+
+ "witness": ["mirror_check","sitemap_order","cadence"]
+
+}
+```
+
+
+
+Google Developers Group, flagged for anticipatory deployments. 
+
+
 ---
 
 ## Versioning
@@ -159,6 +217,7 @@ BibTeX (stub):
 ## License
 
 **CC BY-NC-ND 4.0 + Protocol Addendum** (no monetization, structural repackaging, or derivative protocol use without permission; fair-use interop allowed). A more permissive dual license may be offered for commercial adopters. See `LICENSE`.
+This is designed for AI-Structured Web
 
 ---
 
